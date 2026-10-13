@@ -60,5 +60,37 @@ namespace _04_numerosPares
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string ficheroIN = "numeros.txt";
+            string ficheroOUT = "numerosPekes.txt";
+
+            if (File.Exists(ficheroIN))
+            {
+                using (StreamReader reader = new StreamReader(ficheroIN))
+                {
+                    using (StreamWriter writer = new StreamWriter(ficheroOUT))
+                    {
+                        string? line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            // Intenta convertir la línea a número
+                            if (int.TryParse(line, out int number))
+                            {
+                                if (number <= 10)
+                                {
+                                    writer.WriteLine(number);
+                                }
+                            }
+                        }
+                    }
+                }
+                File.Move(ficheroOUT, ficheroIN, true);
+                //File.Replace(ficheroOUT, ficheroIN,"numerosBak.txt");
+                //también podría ser con File.Copy +File.Delete
+                ;
+            }
+        }
     }
 }
