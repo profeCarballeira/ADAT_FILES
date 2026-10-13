@@ -73,8 +73,47 @@ namespace _01_IntroFicheros
 
         private void btnBorrarCarpeta_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(this.txtCarpeta.Text)){
-                Directory.Delete (this.txtCarpeta.Text);
+            if (Directory.Exists(this.txtCarpeta.Text))
+            {
+                Directory.Delete(this.txtCarpeta.Text);
+            }
+        }
+
+        private void btnLeerFichero_Click(object sender, EventArgs e)
+        {
+            //if (File.Exists(this.txtFicheroLeer.Text)) { 
+            //    StreamReader sr = File.OpenText(this.txtFicheroLeer.Text);
+            //    string linea;
+            //    while ((linea = sr.ReadLine()) != null)
+            //    {
+            //        this.txtLineas.Text += linea + Environment.NewLine;
+            //    }
+            //    sr.Close();
+            //}
+
+            using (StreamReader sr = File.OpenText(this.txtFicheroLeer.Text))
+            {
+                string linea;
+                while ((linea = sr.ReadLine()) != null)
+                {
+                    this.txtLineas.Text += linea + Environment.NewLine;
+                }
+            }
+
+        }
+
+        private void btnInsertarLinea_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter sw = new StreamWriter(this.txtFicheroGrabar.Text))
+            {
+                sw.WriteLine(this.txtLineaGrabar.Text);
+            }
+        }
+
+        private void btnAnadirLinea_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter sw = File.AppendText(this.txtFicheroGrabar.Text)) { 
+                sw.WriteLine (this.txtLineaGrabar.Text);
             }
         }
     }
