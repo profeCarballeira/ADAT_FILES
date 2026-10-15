@@ -92,5 +92,36 @@ namespace _04_numerosPares
                 ;
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string ficheroIN1 = "numeros1.txt";
+            string ficheroIN2 = "numeros2.txt";
+            string ficheroOUT = "numerosFusion.txt";
+
+            if (File.Exists(ficheroIN1) && File.Exists(ficheroIN2))
+            {
+                using (StreamWriter sw = new StreamWriter(ficheroOUT))
+                {
+                    using (StreamReader sr = new StreamReader(ficheroIN1))
+                    {
+                        string? line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+                    using (StreamReader sr = new StreamReader(ficheroIN2))
+                    {
+                        string? line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
