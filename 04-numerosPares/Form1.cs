@@ -123,5 +123,194 @@ namespace _04_numerosPares
                 }
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string ficheroIN = "numeros.txt";
+            string ficheroOUT = "numerosOrdenados.txt";
+
+            if (File.Exists(ficheroIN))
+            {
+                List<int> numeros = new List<int>();
+
+                // Leer todos los números del fichero
+                using (StreamReader sr = new StreamReader(ficheroIN))
+                {
+                    string? line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (int.TryParse(line, out int number))
+                        {
+                            numeros.Add(number);
+                        }
+                    }
+                }
+
+                // Ordenar la lista
+                numeros.Sort();
+
+                // Escribir los números ordenados en el fichero de salida
+                using (StreamWriter writer = new StreamWriter(ficheroOUT))
+                {
+                    foreach (int n in numeros)
+                    {
+                        writer.WriteLine(n);
+                    }
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string ficheroIN = "numeros.txt";
+            int numeroBuscado = System.Convert.ToInt32(this.textBox1.Text);
+            int lineaEncontrada = -1;
+
+            if (File.Exists(ficheroIN))
+            {
+                using (StreamReader sr = new StreamReader(ficheroIN))
+                {
+                    string? linea;
+                    int numeroLinea = 0;
+
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        numeroLinea++; // Cuenta la línea actual (empezando en 1)
+
+                        // Intenta convertir la línea a número
+                        if (int.TryParse(linea, out int numeroActual))
+                        {
+                            if (numeroActual == numeroBuscado)
+                            {
+                                lineaEncontrada = numeroLinea;
+                                break; // Detiene la búsqueda al encontrar la primera coincidencia
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (lineaEncontrada != -1)
+            {
+                MessageBox.Show($"El número {numeroBuscado} está en la línea {lineaEncontrada}.");
+            }
+            else
+            {
+                MessageBox.Show($"El número {numeroBuscado} no se encuentra en el fichero (o el archivo no existe).");
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string ficheroIN = "numeros.txt";
+            string ficheroOUT = "numerosTemp.txt";
+
+            // Validamos que los inputs del usuario sean números correctos
+            if (!int.TryParse(textBox2.Text, out int numeroOriginal) || !int.TryParse(textBox3.Text, out int numeroNuevo))
+            {
+                MessageBox.Show("Por favor, introduce números válidos en ambos campos.");
+                return;
+            }
+
+            if (File.Exists(ficheroIN))
+            {
+                // Abrimos el fichero original para leer y el temporal para escribir
+                using (StreamReader sr = new StreamReader(ficheroIN))
+                {
+                    using (StreamWriter sw = new StreamWriter(ficheroOUT))
+                    {
+                        string? linea;
+                        while ((linea = sr.ReadLine()) != null)
+                        {
+                            // Intenta convertir la línea a número
+                            if (int.TryParse(linea, out int numeroActual))
+                            {
+                                if (numeroActual == numeroOriginal)
+                                {
+                                    // Si coincide, escribimos el nuevo número
+                                    sw.WriteLine(numeroNuevo);
+                                }
+                                else
+                                {
+                                    // Si no coincide, mantenemos el número original
+                                    sw.WriteLine(numeroActual);
+                                }
+                            }
+                            else
+                            {
+                                // Si la línea está vacía o no es un número válido, la copiamos tal cual
+                                sw.WriteLine(linea);
+                            }
+                        }
+                    }
+                }
+
+                // Reemplazamos el fichero original con el fichero modificado
+                File.Move(ficheroOUT, ficheroIN, true);
+                MessageBox.Show("Reemplazo completado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("El fichero numeros.txt no existe.");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string ficheroIN = "numeros.txt";
+
+            // Validamos que el número de líneas por fichero introducido sea válido y mayor que cero
+            if (!int.TryParse(textBox4.Text, out int lineasPorFichero) || lineasPorFichero <= 0)
+            {
+                MessageBox.Show("Por favor, introduce un número de líneas válido y mayor que 0.");
+                return;
+            }
+
+            if (File.Exists(ficheroIN))
+            {
+                using (StreamReader sr = new StreamReader(ficheroIN))
+                {
+                    string? linea;
+                    int contadorLineas = 0;
+                    int numeroFichero = 1;
+                    StreamWriter? sw = null;
+
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        // Si el escritor está cerrado o es nulo, creamos el siguiente fichero
+                        if (sw == null)
+                        {
+                            string ficheroOUT = $"numeros{numeroFichero}.txt";
+                            sw = new StreamWriter(ficheroOUT);
+                        }
+
+                        // Escribimos la línea en el fichero actual
+                        sw.WriteLine(linea);
+                        contadorLineas++;
+
+                        // Si alcanzamos el límite de líneas, cerramos el fichero actual y nos preparamos para el siguiente
+                        if (contadorLineas >= lineasPorFichero)
+                        {
+                            sw.Dispose(); // Cierra y libera el fichero actual de forma segura
+                            sw = null;
+                            contadorLineas = 0;
+                            numeroFichero++;
+                        }
+                    }
+
+                    // Si al terminar el bucle el último fichero se quedó abierto, lo cerramos
+                    if (sw != null)
+                    {
+                        sw.Dispose();
+                    }
+
+                    MessageBox.Show($"Fichero dividido correctamente en {numeroFichero} partes.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El fichero numeros.txt no existe.");
+            }
+        }
     }
 }
