@@ -112,5 +112,37 @@ namespace _05_FicheroRegistroCampos
                 MessageBox.Show("No se encontró el fichero " + fichero, "Error");
             }
         }
+
+        private void btnMejorNota_Click(object sender, EventArgs e)
+        {
+            String Fichero = "notas.txt";
+
+            if (File.Exists(Fichero))
+            {
+                string mejorNombre = "";
+                int mejorNota = -1;
+
+                using (StreamReader sr = new StreamReader(Fichero))
+                {
+                    string? linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        string[] partes = linea.Split('#');
+                        if (partes.Length == 2)
+                        {
+                            if (int.TryParse(partes[1], out int nota))
+                            {
+                                if (nota > mejorNota)
+                                {
+                                    mejorNota = nota;
+                                    mejorNombre = partes[0];
+                                }
+                            }
+                        }
+                    }
+                    this.lblMejorNota.Text = mejorNombre + "=>" + mejorNota.ToString();
+                }
+            }
+        }
     }
 }

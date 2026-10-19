@@ -38,6 +38,8 @@
             panel2 = new Panel();
             lstNotas = new ListBox();
             btnNotas = new Button();
+            btnMejorNota = new Button();
+            lblMejorNota = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numNota).BeginInit();
             panel2.SuspendLayout();
@@ -138,11 +140,31 @@
             btnNotas.UseVisualStyleBackColor = true;
             btnNotas.Click += btnNotas_Click;
             // 
+            // btnMejorNota
+            // 
+            btnMejorNota.Location = new Point(47, 789);
+            btnMejorNota.Name = "btnMejorNota";
+            btnMejorNota.Size = new Size(112, 34);
+            btnMejorNota.TabIndex = 2;
+            btnMejorNota.Text = "Mejor Nota";
+            btnMejorNota.UseVisualStyleBackColor = true;
+            btnMejorNota.Click += btnMejorNota_Click;
+            // 
+            // lblMejorNota
+            // 
+            lblMejorNota.AutoSize = true;
+            lblMejorNota.Location = new Point(235, 798);
+            lblMejorNota.Name = "lblMejorNota";
+            lblMejorNota.Size = new Size(0, 25);
+            lblMejorNota.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 864);
+            Controls.Add(lblMejorNota);
+            Controls.Add(btnMejorNota);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -152,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)numNota).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -166,5 +189,7 @@
         private Panel panel2;
         private ListBox lstNotas;
         private Button btnNotas;
+        private Button btnMejorNota;
+        private Label lblMejorNota;
     }
 }
