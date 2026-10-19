@@ -30,34 +30,59 @@
         {
             richTextBox1 = new RichTextBox();
             button1 = new Button();
+            panel1 = new Panel();
+            btnCargarPDF = new Button();
             SuspendLayout();
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(360, 22);
+            richTextBox1.Location = new Point(189, 14);
+            richTextBox1.Margin = new Padding(4, 5, 4, 5);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(244, 271);
+            richTextBox1.Size = new Size(363, 307);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             richTextBox1.VScroll += richTextBox1_VScroll;
             // 
             // button1
             // 
-            button1.Location = new Point(206, 112);
+            button1.Location = new Point(13, 118);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(110, 35);
+            button1.Size = new Size(157, 58);
             button1.TabIndex = 1;
-            button1.Text = "CArgar";
+            button1.Text = "Cargar rtf";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(201, 340);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(315, 248);
+            panel1.TabIndex = 2;
+            // 
+            // btnCargarPDF
+            // 
+            btnCargarPDF.Location = new Point(13, 418);
+            btnCargarPDF.Margin = new Padding(4, 5, 4, 5);
+            btnCargarPDF.Name = "btnCargarPDF";
+            btnCargarPDF.Size = new Size(157, 58);
+            btnCargarPDF.TabIndex = 3;
+            btnCargarPDF.Text = "Cargar rtf";
+            btnCargarPDF.UseVisualStyleBackColor = true;
+            btnCargarPDF.Click += btnCargarPDF_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1143, 750);
+            Controls.Add(btnCargarPDF);
+            Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(richTextBox1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -67,5 +92,7 @@
 
         private RichTextBox richTextBox1;
         private Button button1;
+        private Panel panel1;
+        private Button btnCargarPDF;
     }
 }
