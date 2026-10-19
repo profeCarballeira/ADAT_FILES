@@ -20,7 +20,8 @@ namespace _05_FicheroRegistroCampos
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+
+        private void btnModificarGuardar_Click(object sender, EventArgs e)
         {
             string fichero = "notas.txt";
             string nombre = this.txtNombre.Text.Trim();
@@ -74,6 +75,42 @@ namespace _05_FicheroRegistroCampos
                 sw.WriteLine($"{nombre}#{nuevaNota}");
             }
             MessageBox.Show("Nota guardada correctamente (nuevo registro).");
+        }
+
+
+        private void btnNotas_Click(object sender, EventArgs e)
+        {
+            string fichero = "notas.txt";
+
+            // Limpiamos el ListBox antes de cargar los datos
+            this.lstNotas.Items.Clear();
+
+            if (File.Exists(fichero))
+            {
+                using (StreamReader sr = new StreamReader(fichero))
+                {
+                    string? linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        // Dividir la línea por el carácter '#'
+                        string[] partes = linea.Split('#');
+
+                        // Verificamos que haya dos partes (nombre y nota)
+                        if (partes.Length == 2)
+                        {
+                            string nombre = partes[0];
+                            string nota = partes[1];
+
+                            // Añadimos al ListBox en formato "Nombre - Nota"
+                            this.lstNotas.Items.Add($"{nombre} \t\t {nota}");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el fichero " + fichero, "Error");
+            }
         }
     }
 }

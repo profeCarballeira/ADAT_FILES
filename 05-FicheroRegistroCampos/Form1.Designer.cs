@@ -29,19 +29,24 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnModificarGuardar = new Button();
             btnGuardarNota = new Button();
             numNota = new NumericUpDown();
             txtNombre = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            btnModificar = new Button();
+            panel2 = new Panel();
+            lstNotas = new ListBox();
+            btnNotas = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numNota).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnModificar);
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(btnModificarGuardar);
             panel1.Controls.Add(btnGuardarNota);
             panel1.Controls.Add(numNota);
             panel1.Controls.Add(txtNombre);
@@ -51,6 +56,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(408, 198);
             panel1.TabIndex = 0;
+            // 
+            // btnModificarGuardar
+            // 
+            btnModificarGuardar.Location = new Point(228, 89);
+            btnModificarGuardar.Name = "btnModificarGuardar";
+            btnModificarGuardar.Size = new Size(163, 45);
+            btnModificarGuardar.TabIndex = 6;
+            btnModificarGuardar.Text = "Guardar/Modificar";
+            btnModificarGuardar.UseVisualStyleBackColor = true;
+            btnModificarGuardar.Click += btnModificarGuardar_Click;
             // 
             // btnGuardarNota
             // 
@@ -94,27 +109,48 @@
             label1.TabIndex = 1;
             label1.Text = "Nombre:";
             // 
-            // btnModificar
+            // panel2
             // 
-            btnModificar.Location = new Point(273, 89);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(118, 45);
-            btnModificar.TabIndex = 6;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(lstNotas);
+            panel2.Controls.Add(btnNotas);
+            panel2.Location = new Point(45, 260);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(408, 483);
+            panel2.TabIndex = 1;
+            // 
+            // lstNotas
+            // 
+            lstNotas.FormattingEnabled = true;
+            lstNotas.Location = new Point(31, 99);
+            lstNotas.Name = "lstNotas";
+            lstNotas.Size = new Size(344, 354);
+            lstNotas.TabIndex = 8;
+            // 
+            // btnNotas
+            // 
+            btnNotas.FlatStyle = FlatStyle.Flat;
+            btnNotas.Location = new Point(145, 17);
+            btnNotas.Name = "btnNotas";
+            btnNotas.Size = new Size(85, 45);
+            btnNotas.TabIndex = 7;
+            btnNotas.Text = "Listar";
+            btnNotas.UseVisualStyleBackColor = true;
+            btnNotas.Click += btnNotas_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 864);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numNota).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -126,6 +162,9 @@
         private Button btnGuardarNota;
         private NumericUpDown numNota;
         private TextBox txtNombre;
-        private Button btnModificar;
+        private Button btnModificarGuardar;
+        private Panel panel2;
+        private ListBox lstNotas;
+        private Button btnNotas;
     }
 }
