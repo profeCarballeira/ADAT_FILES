@@ -144,5 +144,90 @@ namespace _05_FicheroRegistroCampos
                 }
             }
         }
+
+
+
+        private void btnCargarChecklist_Click(object sender, EventArgs e)
+        {
+            string fichero = "notas.txt";
+
+            // Limpiamos el CheckedListBox antes de cargar los datos
+            this.clbNotas.Items.Clear();
+
+            // Comprobamos si el fichero existe
+            if (File.Exists(fichero))
+            {
+                using (StreamReader sr = new StreamReader(fichero))
+                {
+                    string? linea;
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        // Dividimos la línea por '#'
+                        string[] partes = linea.Split('#');
+
+                        if (partes.Length == 2)
+                        {
+                            string nombre = partes[0];
+                            string nota = partes[1];
+
+                            // Añadimos al CheckedListBox en formato "Nombre - Nota"
+                            this.clbNotas.Items.Add($"{nombre}\t\t{nota}", false);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string fichero = "notas.txt";
+
+            if (!File.Exists(fichero))
+            {
+                MessageBox.Show("No se encontró el fichero " + fichero, "Error");
+                return;
+            }
+
+            // Obtener los elementos marcados en el CheckedListBox
+            var itemsMarcados = new HashSet<string>();
+            foreach (var item in clbNotas.CheckedItems)
+            {
+                itemsMarcados.Add(item.ToString());
+            }
+
+            // Leer todas las líneas del fichero
+            var lineas = File.ReadAllLines(fichero);
+            var nuevasLineas = new List<string>();
+
+            foreach (var linea in lineas)
+            {
+                string[] partes = linea.Split('#');
+                if (partes.Length == 2)
+                {
+                    string nombre = partes[0];
+                    string nota = partes[1];
+                    string formatoLista = $"{nombre}\t\t{nota}";
+
+                    // Si el registro NO está marcado, lo conservamos
+                    if (!itemsMarcados.Contains(formatoLista))
+                    {
+                        nuevasLineas.Add(linea);
+                    }
+                }
+                else
+                {
+                    // Si la línea no tiene el formato esperado, la conservamos
+                    nuevasLineas.Add(linea);
+                }
+            }
+
+            // Sobrescribir el fichero con las líneas no marcadas
+            File.WriteAllLines(fichero, nuevasLineas);
+
+            // Recargar el CheckedListBox para reflejar los cambios
+            btnCargarChecklist_Click(sender, e);            
+
+            MessageBox.Show("Registros marcados eliminados correctamente.");
+        }
     }
 }

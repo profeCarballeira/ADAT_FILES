@@ -40,9 +40,14 @@
             btnNotas = new Button();
             btnMejorNota = new Button();
             lblMejorNota = new Label();
+            panel3 = new Panel();
+            btnEliminar = new Button();
+            clbNotas = new CheckedListBox();
+            btnCargarChecklist = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numNota).BeginInit();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -158,11 +163,51 @@
             lblMejorNota.Size = new Size(0, 25);
             lblMejorNota.TabIndex = 3;
             // 
+            // panel3
+            // 
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(btnEliminar);
+            panel3.Controls.Add(clbNotas);
+            panel3.Controls.Add(btnCargarChecklist);
+            panel3.Location = new Point(511, 36);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(405, 707);
+            panel3.TabIndex = 4;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(66, 647);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(193, 36);
+            btnEliminar.TabIndex = 2;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // clbNotas
+            // 
+            clbNotas.FormattingEnabled = true;
+            clbNotas.Location = new Point(24, 89);
+            clbNotas.Name = "clbNotas";
+            clbNotas.Size = new Size(343, 536);
+            clbNotas.TabIndex = 1;
+            // 
+            // btnCargarChecklist
+            // 
+            btnCargarChecklist.Location = new Point(136, 18);
+            btnCargarChecklist.Name = "btnCargarChecklist";
+            btnCargarChecklist.Size = new Size(112, 34);
+            btnCargarChecklist.TabIndex = 0;
+            btnCargarChecklist.Text = "Cargar";
+            btnCargarChecklist.UseVisualStyleBackColor = true;
+            btnCargarChecklist.Click += btnCargarChecklist_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 864);
+            Controls.Add(panel3);
             Controls.Add(lblMejorNota);
             Controls.Add(btnMejorNota);
             Controls.Add(panel2);
@@ -173,6 +218,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numNota).EndInit();
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,5 +237,9 @@
         private Button btnNotas;
         private Button btnMejorNota;
         private Label lblMejorNota;
+        private Panel panel3;
+        private CheckedListBox clbNotas;
+        private Button btnCargarChecklist;
+        private Button btnEliminar;
     }
 }
