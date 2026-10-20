@@ -4,4 +4,5 @@
   <Project Path="03-ListarCiudades/03-ListarCiudades.csproj" Id="0ce218e3-c5a4-4c79-98e6-446b34cda854" />
   <Project Path="04-numerosPares/04-numerosPares.csproj" Id="e07e6220-a6b9-4e7e-a883-cddef60800f2" />
   <Project Path="05-FicheroRegistroCampos/05-FicheroRegistroCampos.csproj" Id="412c73e2-c904-42f5-9e07-4f669c5c53a0" />
+  <Project Path="06-CSV/06-CSV.csproj" Id="cd99ed00-030a-4ccf-b6af-224e8f0a49e3" />
 </Solution>

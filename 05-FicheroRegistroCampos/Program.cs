@@ -2,7 +2,6 @@ namespace _05_FicheroRegistroCampos
 {
     internal static class Program
     {
-        //cambio pc
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

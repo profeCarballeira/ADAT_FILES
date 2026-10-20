@@ -21,6 +21,7 @@ namespace _02_Ver_rtf
 
         private async void btnCargarPDF_Click(object sender, EventArgs e)
         {
+            //IMPRESCINDIBLE añadir WebView2 al proyecto a través de Nuget
             // Añadir esta variable arriba o dentro del método
             Microsoft.Web.WebView2.WinForms.WebView2 webViewPDF = new Microsoft.Web.WebView2.WinForms.WebView2();
             webViewPDF.Dock = DockStyle.Fill;
