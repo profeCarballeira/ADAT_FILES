@@ -31,6 +31,9 @@
             btnLeerCSV = new Button();
             lblContenidoCSV = new Label();
             btnLeerCSVHelper = new Button();
+            btnLeerCSVHelperPuntoComa = new Button();
+            btnLeerCSVHelperPuntoComaSinHeaders = new Button();
+            btnGuardarCSVHelper = new Button();
             SuspendLayout();
             // 
             // btnLeerCSV
@@ -62,11 +65,44 @@
             btnLeerCSVHelper.UseVisualStyleBackColor = true;
             btnLeerCSVHelper.Click += btnLeerCSVHelper_Click;
             // 
+            // btnLeerCSVHelperPuntoComa
+            // 
+            btnLeerCSVHelperPuntoComa.Location = new Point(47, 245);
+            btnLeerCSVHelperPuntoComa.Name = "btnLeerCSVHelperPuntoComa";
+            btnLeerCSVHelperPuntoComa.Size = new Size(180, 76);
+            btnLeerCSVHelperPuntoComa.TabIndex = 3;
+            btnLeerCSVHelperPuntoComa.Text = "Leer CSV Helper (punto coma)";
+            btnLeerCSVHelperPuntoComa.UseVisualStyleBackColor = true;
+            btnLeerCSVHelperPuntoComa.Click += btnLeerCSVHelperPuntoComa_Click;
+            // 
+            // btnLeerCSVHelperPuntoComaSinHeaders
+            // 
+            btnLeerCSVHelperPuntoComaSinHeaders.Location = new Point(47, 354);
+            btnLeerCSVHelperPuntoComaSinHeaders.Name = "btnLeerCSVHelperPuntoComaSinHeaders";
+            btnLeerCSVHelperPuntoComaSinHeaders.Size = new Size(180, 95);
+            btnLeerCSVHelperPuntoComaSinHeaders.TabIndex = 4;
+            btnLeerCSVHelperPuntoComaSinHeaders.Text = "Leer CSV Helper (punto coma) (sin encabezados)";
+            btnLeerCSVHelperPuntoComaSinHeaders.UseVisualStyleBackColor = true;
+            btnLeerCSVHelperPuntoComaSinHeaders.Click += btnLeerCSVHelperPuntoComaSinHeaders_Click;
+            // 
+            // btnGuardarCSVHelper
+            // 
+            btnGuardarCSVHelper.Location = new Point(47, 482);
+            btnGuardarCSVHelper.Name = "btnGuardarCSVHelper";
+            btnGuardarCSVHelper.Size = new Size(180, 76);
+            btnGuardarCSVHelper.TabIndex = 5;
+            btnGuardarCSVHelper.Text = "Guardar CSV Helper";
+            btnGuardarCSVHelper.UseVisualStyleBackColor = true;
+            btnGuardarCSVHelper.Click += btnGuardarCSVHelper_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(841, 677);
+            Controls.Add(btnGuardarCSVHelper);
+            Controls.Add(btnLeerCSVHelperPuntoComaSinHeaders);
+            Controls.Add(btnLeerCSVHelperPuntoComa);
             Controls.Add(btnLeerCSVHelper);
             Controls.Add(lblContenidoCSV);
             Controls.Add(btnLeerCSV);
@@ -81,5 +117,9 @@
         private Button btnLeerCSV;
         private Label lblContenidoCSV;
         private Button btnLeerCSVHelper;
+        private Button btnLeerCSVHelperPuntoComa;
+        private Button btnLeerCSVHelperPuntoComaSinHeaders;
+        protected internal Button btnGuardarCSVHelper;
+        private Button button1;
     }
 }
