@@ -5,4 +5,5 @@
   <Project Path="04-numerosPares/04-numerosPares.csproj" Id="e07e6220-a6b9-4e7e-a883-cddef60800f2" />
   <Project Path="05-FicheroRegistroCampos/05-FicheroRegistroCampos.csproj" Id="412c73e2-c904-42f5-9e07-4f669c5c53a0" />
   <Project Path="06-CSV/06-CSV.csproj" Id="cd99ed00-030a-4ccf-b6af-224e8f0a49e3" />
+  <Project Path="07-JSON/07-JSON.csproj" Id="4f1f723c-7417-498e-8cee-abe760d76cab" />
 </Solution>
