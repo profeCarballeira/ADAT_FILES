@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<personas>
+  <persona>
+    <nombre>aaa</nombre>
+    <edad>12</edad>
+    <profesion>bbbb</profesion>
+  </persona>
+  <persona>
+    <nombre>aaa</nombre>
+    <edad>12</edad>
+    <profesion>bbbb</profesion>
+  </persona>
+  <persona>
+    <nombre>bbb</nombre>
+    <edad>121</edad>
+    <profesion>cc</profesion>
+  </persona>
+</personas>

@@ -32,6 +32,7 @@
             lblPersona = new Label();
             btnGrabarJSON = new Button();
             groupBox1 = new GroupBox();
+            lblListadoPersonas = new Label();
             btnLeerListaPersonas = new Button();
             btnAddPersona = new Button();
             txtProfesion = new TextBox();
@@ -40,15 +41,15 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            lblListadoPersonas = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnLeerJSONlocal
             // 
-            btnLeerJSONlocal.Location = new Point(35, 34);
+            btnLeerJSONlocal.Location = new Point(24, 20);
+            btnLeerJSONlocal.Margin = new Padding(2, 2, 2, 2);
             btnLeerJSONlocal.Name = "btnLeerJSONlocal";
-            btnLeerJSONlocal.Size = new Size(210, 41);
+            btnLeerJSONlocal.Size = new Size(147, 25);
             btnLeerJSONlocal.TabIndex = 0;
             btnLeerJSONlocal.Text = "Deserializar";
             btnLeerJSONlocal.UseVisualStyleBackColor = true;
@@ -57,17 +58,20 @@
             // lblPersona
             // 
             lblPersona.AutoSize = true;
-            lblPersona.Location = new Point(273, 46);
+            lblPersona.Location = new Point(191, 28);
+            lblPersona.Margin = new Padding(2, 0, 2, 0);
             lblPersona.Name = "lblPersona";
-            lblPersona.Size = new Size(59, 25);
+            lblPersona.Size = new Size(38, 15);
             lblPersona.TabIndex = 1;
             lblPersona.Text = "label1";
+            lblPersona.Click += lblPersona_Click;
             // 
             // btnGrabarJSON
             // 
-            btnGrabarJSON.Location = new Point(389, 38);
+            btnGrabarJSON.Location = new Point(272, 23);
+            btnGrabarJSON.Margin = new Padding(2, 2, 2, 2);
             btnGrabarJSON.Name = "btnGrabarJSON";
-            btnGrabarJSON.Size = new Size(311, 41);
+            btnGrabarJSON.Size = new Size(218, 25);
             btnGrabarJSON.TabIndex = 2;
             btnGrabarJSON.Text = "Serializar Grabar";
             btnGrabarJSON.UseVisualStyleBackColor = true;
@@ -84,18 +88,33 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(28, 123);
+            groupBox1.Location = new Point(20, 74);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(701, 496);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(491, 298);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "lista de objeto JSON";
+
+            // 
+            // lblListadoPersonas
+            // 
+            lblListadoPersonas.AutoSize = true;
+            lblListadoPersonas.Location = new Point(24, 120);
+            lblListadoPersonas.Margin = new Padding(2, 0, 2, 0);
+            lblListadoPersonas.Name = "lblListadoPersonas";
+            lblListadoPersonas.Size = new Size(38, 15);
+            lblListadoPersonas.TabIndex = 8;
+            lblListadoPersonas.Text = "label1";
+            lblListadoPersonas.Click += label4_Click;
             // 
             // btnLeerListaPersonas
             // 
-            btnLeerListaPersonas.Location = new Point(412, 128);
+            btnLeerListaPersonas.Location = new Point(288, 77);
+            btnLeerListaPersonas.Margin = new Padding(2, 2, 2, 2);
             btnLeerListaPersonas.Name = "btnLeerListaPersonas";
-            btnLeerListaPersonas.Size = new Size(228, 41);
+            btnLeerListaPersonas.Size = new Size(160, 25);
             btnLeerListaPersonas.TabIndex = 7;
             btnLeerListaPersonas.Text = "Leer Lista";
             btnLeerListaPersonas.UseVisualStyleBackColor = true;
@@ -103,9 +122,10 @@
             // 
             // btnAddPersona
             // 
-            btnAddPersona.Location = new Point(412, 72);
+            btnAddPersona.Location = new Point(288, 43);
+            btnAddPersona.Margin = new Padding(2, 2, 2, 2);
             btnAddPersona.Name = "btnAddPersona";
-            btnAddPersona.Size = new Size(228, 41);
+            btnAddPersona.Size = new Size(160, 25);
             btnAddPersona.TabIndex = 6;
             btnAddPersona.Text = "Añadir Persona";
             btnAddPersona.UseVisualStyleBackColor = true;
@@ -113,71 +133,68 @@
             // 
             // txtProfesion
             // 
-            txtProfesion.Location = new Point(140, 128);
+            txtProfesion.Location = new Point(98, 77);
+            txtProfesion.Margin = new Padding(2, 2, 2, 2);
             txtProfesion.Name = "txtProfesion";
-            txtProfesion.Size = new Size(150, 31);
+            txtProfesion.Size = new Size(106, 23);
             txtProfesion.TabIndex = 5;
             // 
             // txtEdad
             // 
-            txtEdad.Location = new Point(140, 82);
+            txtEdad.Location = new Point(98, 49);
+            txtEdad.Margin = new Padding(2, 2, 2, 2);
             txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(150, 31);
+            txtEdad.Size = new Size(106, 23);
             txtEdad.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(140, 42);
+            txtNombre.Location = new Point(98, 25);
+            txtNombre.Margin = new Padding(2, 2, 2, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(150, 31);
+            txtNombre.Size = new Size(106, 23);
             txtNombre.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(35, 128);
+            label3.Location = new Point(24, 77);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(91, 25);
+            label3.Size = new Size(60, 15);
             label3.TabIndex = 2;
             label3.Text = "Profesión:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(35, 88);
+            label2.Location = new Point(24, 53);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(56, 25);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 1;
             label2.Text = "Edad:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 48);
+            label1.Location = new Point(24, 29);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(82, 25);
+            label1.Size = new Size(54, 15);
             label1.TabIndex = 0;
             label1.Text = "Nombre:";
             // 
-            // lblListadoPersonas
-            // 
-            lblListadoPersonas.AutoSize = true;
-            lblListadoPersonas.Location = new Point(35, 200);
-            lblListadoPersonas.Name = "lblListadoPersonas";
-            lblListadoPersonas.Size = new Size(59, 25);
-            lblListadoPersonas.TabIndex = 8;
-            lblListadoPersonas.Text = "label1";
-            lblListadoPersonas.Click += label4_Click;
-            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(854, 820);
+            ClientSize = new Size(598, 492);
             Controls.Add(groupBox1);
             Controls.Add(btnGrabarJSON);
             Controls.Add(lblPersona);
             Controls.Add(btnLeerJSONlocal);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);

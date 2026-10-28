@@ -31,13 +31,16 @@ namespace _07_JSON
             string ficheroJSON = "persona_guardada.json";
             Persona p = new Persona
             {
-                nombre = "Adrian",
+                nombre = "Adrián",
                 edad = 19,
                 profesion = "Desarrollador c#"
             };
 
-            string jsonText = JsonSerializer.Serialize(p, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(ficheroJSON, jsonText);
+            string jsonText = JsonSerializer.Serialize(p, new JsonSerializerOptions {
+                WriteIndented = true ,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping //para las tildes, ñ...
+            });
+            File.WriteAllText(ficheroJSON, jsonText, System.Text.Encoding.UTF8);
 
             MessageBox.Show("Archivo JSon guardado correctamente");
 
@@ -82,12 +85,14 @@ namespace _07_JSON
             string ficheroJSON = "ListaPersonas.json";
             this.lblListadoPersonas.Text = ""; //limpiar el contenido previo
 
-            if (File.Exists(ficheroJSON)) { 
+            if (File.Exists(ficheroJSON))
+            {
                 string jsonText = File.ReadAllText(ficheroJSON);
                 try
                 {
                     List<Persona> personas = JsonSerializer.Deserialize<List<Persona>>(jsonText);
-                    foreach (Persona p in personas) {
+                    foreach (Persona p in personas)
+                    {
                         this.lblListadoPersonas.Text += "Nombre: " + p.nombre + Environment.NewLine +
                                                     "Edad: " + p.edad + Environment.NewLine +
                                                     "Profesión:" + p.profesion + Environment.NewLine +
@@ -95,18 +100,23 @@ namespace _07_JSON
                     }
 
                 }
-                catch 
+                catch
                 {
 
                     this.lblListadoPersonas.Text = "El archivo no contiene una lista JSON válida";
                 }
 
-            
+
             }
 
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPersona_Click(object sender, EventArgs e)
         {
 
         }
