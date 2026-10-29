@@ -32,6 +32,8 @@
             button1 = new Button();
             panel1 = new Panel();
             btnCargarPDF = new Button();
+            btnCargarMD = new Button();
+            markdownViewer1 = new CDS.Markdown.MarkdownViewer();
             SuspendLayout();
             // 
             // richTextBox1
@@ -59,7 +61,7 @@
             // 
             panel1.Location = new Point(201, 340);
             panel1.Name = "panel1";
-            panel1.Size = new Size(315, 248);
+            panel1.Size = new Size(512, 398);
             panel1.TabIndex = 2;
             // 
             // btnCargarPDF
@@ -73,11 +75,31 @@
             btnCargarPDF.UseVisualStyleBackColor = true;
             btnCargarPDF.Click += btnCargarPDF_Click;
             // 
+            // btnCargarMD
+            // 
+            btnCargarMD.Location = new Point(607, 86);
+            btnCargarMD.Margin = new Padding(4, 5, 4, 5);
+            btnCargarMD.Name = "btnCargarMD";
+            btnCargarMD.Size = new Size(157, 58);
+            btnCargarMD.TabIndex = 4;
+            btnCargarMD.Text = "Cargar.md";
+            btnCargarMD.UseVisualStyleBackColor = true;
+            btnCargarMD.Click += btnCargarMD_Click;
+            // 
+            // markdownViewer1
+            // 
+            markdownViewer1.Location = new Point(817, 57);
+            markdownViewer1.Name = "markdownViewer1";
+            markdownViewer1.Size = new Size(657, 558);
+            markdownViewer1.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(1559, 750);
+            Controls.Add(markdownViewer1);
+            Controls.Add(btnCargarMD);
             Controls.Add(btnCargarPDF);
             Controls.Add(panel1);
             Controls.Add(button1);
@@ -94,5 +116,7 @@
         private Button button1;
         private Panel panel1;
         private Button btnCargarPDF;
+        private Button btnCargarMD;
+        private CDS.Markdown.MarkdownViewer markdownViewer1;
     }
 }

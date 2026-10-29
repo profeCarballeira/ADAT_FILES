@@ -1,5 +1,7 @@
 
 
+using CDS.Markdown;
+
 namespace _02_Ver_rtf
 {
     public partial class Form1 : Form
@@ -46,6 +48,43 @@ namespace _02_Ver_rtf
             else
             {
                 MessageBox.Show($"No se encontró el archivo en: {rutaPDF}", "Error de archivo");
+            }
+        }
+
+        //private MarkdownViewer markdownViewer1;
+        private async void btnCargarMD_Click(object sender, EventArgs e)
+        {
+            // 1. Definir la ruta del archivo .md
+            string rutaArchivo = @"holaMarkDown.md";
+
+            // 2. Validar que el archivo realmente exista
+            if (!System.IO.File.Exists(rutaArchivo))
+            {
+                MessageBox.Show($"No se encontró el archivo en la ruta:\n{rutaArchivo}",
+                                "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 3. Crear el control visor dinámicamente si no lo has arrastrado al diseño
+                // (Si ya arrastraste el control desde la caja de herramientas y se llama markdownViewer1,
+                // puedes borrar estas 3 líneas de inicialización).
+                if (markdownViewer1 == null)
+                {
+                    markdownViewer1 = new CDS.Markdown.MarkdownViewer();
+                    markdownViewer1.Dock = DockStyle.Fill;
+                    this.Controls.Add(markdownViewer1);
+                    markdownViewer1.BringToFront(); // Asegura que se vea por encima de otros controles
+                }
+
+                // 4. Cargar y renderizar el archivo .md con una sola línea
+                await markdownViewer1.LoadMarkdownAsync(rutaArchivo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al cargar el archivo: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

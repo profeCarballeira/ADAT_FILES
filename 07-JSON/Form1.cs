@@ -110,15 +110,5 @@ namespace _07_JSON
             }
 
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPersona_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

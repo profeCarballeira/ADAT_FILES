@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CDS.Markdown" Version="1.5.7" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
     <PackageReference Include="PdfiumViewer" Version="2.13.0" />
   </ItemGroup>
